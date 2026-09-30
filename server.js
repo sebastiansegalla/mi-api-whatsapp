@@ -47,4 +47,3 @@ client.initialize();
 app.get('/', (req, res) => {
     if (qrCodeData) {
         res.send(`
-    
