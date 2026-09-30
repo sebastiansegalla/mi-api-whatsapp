@@ -1,9 +1,16 @@
 const express = require('express');
-const { default: makeWASocket, useMultiFileAuthState } = require('@whiskeysockets/baileys');
-const qrcode = require('qrcode');
-const pino = require('pino');
-
 const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Middleware para que el servidor entienda JSON
 app.use(express.json());
 
-let qrHtml = '
+// Ruta de prueba (GET)
+app.get('/', (req, res) => {
+    res.json({ mensaje: '¡Tu web service está funcionando correctamente!' });
+});
+
+// Iniciar el servidor
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
+});
